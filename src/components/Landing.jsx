@@ -98,12 +98,11 @@ const Vector = styled.img`
 `
 
 const Landing = () => {
+    const [available, setAvailable] = useState(false)
     const [data, setData] = useState([])
     useEffect(() => {
         getData().then(res => { setData(res) })
     }, [])
-    const left = false;
-    const right = true;
     return (
             <OurCoffesBox>
                 <Vector src={vector} style={{ zIndex: '-10' }} />
@@ -113,10 +112,10 @@ const Landing = () => {
                         Introducing our Coffee Collection, a selection of unique coffes from different roasts types and origins, expertly roasted in small batches and shipped fresh weekly.
                     </Description>
                     <BoxRowButtons>
-                        <ButtonAllProducts sx={{ backgroundColor: left ? '#1B1D1F' : '#6F757C' }}>All Products</ButtonAllProducts>
-                        <ButtonAllProducts sx={{ backgroundColor: right ? '#1B1D1F' : '#6F757C' }}>Available Now</ButtonAllProducts>
+                        <ButtonAllProducts sx={{ backgroundColor: available ? '#1B1D1F' : '#6F757C' }} onClick={() => setAvailable(false)}>All Products</ButtonAllProducts>
+                        <ButtonAllProducts sx={{ backgroundColor: !available ? '#1B1D1F' : '#6F757C' }} onClick={() => setAvailable(true)}>Available Now</ButtonAllProducts>
                     </BoxRowButtons>
-                    <CardsContainer coffees={data} />
+                    <CardsContainer coffees={data} available={available}/>
                 </BoxTop>
             </OurCoffesBox>
     )

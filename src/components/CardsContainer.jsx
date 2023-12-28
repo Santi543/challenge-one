@@ -7,10 +7,10 @@ const Container = styled(Box)`
     margin-top: 40px;
 `
 
-const CardsContainer = ({coffees}) => {
+const CardsContainer = ({coffees, available}) => {
   return (
     <Container>
-        <CardList coffees={coffees}/>
+        <CardList coffees={coffees} available={available}/>
     </Container>
   )
 }
