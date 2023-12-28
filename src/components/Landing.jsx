@@ -4,36 +4,27 @@ import { Box, Typography } from '@mui/material'
 import vector from '../imgs/vector.svg'
 import getData from '../data/productsArray'
 import CardsContainer from './CardsContainer'
-import photo from '../imgs/bg-cafe.jpg';
-
-const BackgroundImage = styled.img`
-    width: 100%;
-    height: 300px;
-`
 
 const OurCoffesBox = styled(Box)`
     display: flex;
     flex-direction: column;
     background-color: #1B1D1F;
     z-index: 100;
-    position: absolute;
-    border-radius: 10px;
     align-items: center;
+    justify-content: center;
+    border-radius: 10px;
     padding: 15px 0px 50px 0px;
     width: 80%;
     height: 783px;
-    justify-self: center;
-    top: 400px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
+    margin-top: 160px;
+    margin-bottom: 100px;
+    position: relative;
     @media (max-width: 1024px) {
-        top: 593px;
+        
         height: 970px;
     }
     @media (max-width: 800px){
-        top: 1060px;
+        
         height: 1730px;
         width: 400px;
     }
@@ -90,8 +81,8 @@ const BoxTop = styled(Box)`
 const Vector = styled.img`
     z-index: -10;
     position: absolute;
-    right: 387px;
-    top: 20px;
+    right: 380px;
+    top: 25px;
     @media (max-width: 1300px){
         right: 250px;
     }
@@ -102,7 +93,7 @@ const Vector = styled.img`
         right: 149px;
     }
     @media (max-width: 800px){
-        right: -55px;
+        right: 55px;
     }
 `
 
@@ -114,8 +105,6 @@ const Landing = () => {
     const left = false;
     const right = true;
     return (
-        <>
-            <BackgroundImage src={photo} />
             <OurCoffesBox>
                 <Vector src={vector} style={{ zIndex: '-10' }} />
                 <BoxTop>
@@ -129,9 +118,7 @@ const Landing = () => {
                     </BoxRowButtons>
                     <CardsContainer coffees={data} />
                 </BoxTop>
-
             </OurCoffesBox>
-        </>
     )
 }
 
